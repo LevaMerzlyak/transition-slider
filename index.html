@@ -13,19 +13,24 @@
 </head>
 <body>
 	<section class="objects">
-		<div class="objects__slider">
-			<div class="objectSlider__item item">Your CONTENT</div>
-			<div class="objectSlider__item item">Your CONTENT</div>
-			<div class="objectSlider__item item">Your CONTENT</div>
-			<div class="objectSlider__item item">Your CONTENT</div>
-			<div class="objectSlider__item item">Your CONTENT</div>
+		<div class="owl-carousel">
+			<div class="objectSlider__item">Your CONTENT1</div>
+			<div class="objectSlider__item">Your CONTENT2</div>
+			<div class="objectSlider__item">Your CONTENT3</div>
+			<div class="objectSlider__item">Your CONTENT4</div>
+			<div class="objectSlider__item">Your CONTENT5</div>
 		</div>
 	</section>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="js/OwlCarousel2-2.2.1/dist/owl.carousel.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$(".objects__slider").owlCarousel();
+			$(".owl-carousel").owlCarousel({
+				loop: true,
+				nav: true,
+				item: 1,
+				margin: 10
+			});
 		});
 	</script>
 </body>
