@@ -12,9 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<section class="objects">
+	<section class="objects" id="objects">
 		<div class="back__btn">
-			<a class="backBtn">Назад</a>
+			<a class="backBtn" href="#">Назад</a>
 		</div>
 		<div class="owl-carousel">
 			<div class="objectSlider__item">
@@ -72,11 +72,15 @@
 				loop: true,
 				nav: true,
 				center: true,
-				item: 1,
-				stagePadding: 50,
-				margin: 550
+				items: 1,
+				margin: 200,
+				stagePadding: 300
 			});
 		});
+	</script>
+	<script type="text/javascript" src="js/imgCover.js"></script>
+	<script>
+		var i = new ImgCover("#objects");
 	</script>
 </body>
 </html>
