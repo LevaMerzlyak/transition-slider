@@ -1,10 +1,13 @@
-function ImgCover(sSelector) {
+function SliderInit(sSelector) {
 
   var i = this;
 
-  i.articles = $(sSelector);
-  i.wrap = i.articles.find('.objectSlider__item');
+  i.objects = $(sSelector);
+  i.wrap = i.objects.find('.objectSlider__item');
   i.img = i.wrap.find('.slide__img');
+  i.prev = i.objects.find('.slideNav__btn_prev');
+  i.next = i.objects.find('.slideNav__btn_next');
+  i.slide = i.objects.find('.slide__head');
 
   i.cover = function () {
    $(i.wrap).each(function () {
@@ -21,7 +24,13 @@ function ImgCover(sSelector) {
    i.img.hide();
 
   };
+  i.showSlide = function() {
+    var slide = $(this);
+    
+
+  }
 
 	//$(window).ready(i.cover);
+  i.slide.click(i.showSlide);
 
 }

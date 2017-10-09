@@ -14,7 +14,7 @@
 <body>
 	<section class="objects" id="objects">
 		<div class="back__btn">
-			<a class="backBtn" href="#">Назад</a>
+			<a class="backBtn" href="#"><span class="fa fa-long-arrow-left"></span>&nbsp; Назад</a>
 		</div>
 		<div class="owl-carousel">
 			<div class="objectSlider__item">
@@ -63,24 +63,36 @@
 				<p class="slide__txt"></p>
 			</div>
 		</div>
+		<div class="slider__nav">
+			<a href="#" class="slideNav__btn slideNav__btn_prev"><span class="fa fa-angle-left"></span></a>
+			<a href="#" class="slideNav__btn slideNav__btn_next"><span class="fa fa-angle-right"></span></a>
+		</div>
 	</section>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/imgCover.js"></script>
+	<script type="text/javascript" src="js/SliderInit.js"></script>
 	<script>
-		var i = new ImgCover("#objects");
+		var i = new SliderInit("#objects");
 	</script>
 	<script src="js/OwlCarousel2-2.2.1/dist/owl.carousel.js" type="text/javascript"></script>
 	<script type="text/javascript">
+		var owl = $(".owl-carousel");
 		$(document).ready(function(){
-			$(".owl-carousel").owlCarousel({
+			owl.owlCarousel({
 				loop: true,
-				nav: true,
 				center: true,
 				items: 1,
 				margin: 200,
 				stagePadding: 300,
 				onInitialize: i.cover
 			});
+		});
+		i.prev.click(function(event) {
+			event.preventDefault();
+			owl.trigger('prev.owl.carousel');
+		});
+		i.next.click(function(event) {
+			event.preventDefault();
+			owl.trigger('next.owl.carousel');
 		});
 	</script>
 	
