@@ -1,9 +1,12 @@
 body {
   font-family: sans-serif; }
 
+.objects {
+  padding-top: 5%; }
+
 .back__btn {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   right: 1%;
   top: 1%;
   background-color: transparent;
@@ -11,7 +14,8 @@ body {
   background-size: 0% 100%;
   -webkit-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out; }
+  transition: all 1s ease-in-out;
+  cursor: pointer; }
   .back__btn:hover {
     background-color: #cc2a3a;
     background-size: 100% 100%; }
@@ -20,8 +24,20 @@ body {
 
 .backBtn {
   line-height: 44px;
+  padding: 0 15px;
   color: #cc2a3a;
   -webkit-transition: all .5s ease-in-out;
   -o-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.objectSlider__item {
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  background-color: #cc2a3a; }
+
+.slide__img {
+  width: 100%;
+  height: auto; }

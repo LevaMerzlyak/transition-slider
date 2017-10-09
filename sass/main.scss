@@ -15,15 +15,19 @@ $red: #cc2a3a;
 body {
 	font-family: sans-serif;
 }
+.objects {
+	padding-top: 5%;
+}
 .back__btn {
 	display: inline-block;
-	position: absolute;
+	position: fixed;
 	right: 1%;
 	top: 1%;
 	background-color: transparent;
 	background-position: right center;
 	background-size: 0% 100%;
 	transition: all 1s ease-in-out;
+	cursor: pointer;
 	&:hover{
 		background-color: $red;
 		background-size: 100% 100%;
@@ -34,7 +38,19 @@ body {
 }
 .backBtn {
 	line-height: 44px;
+	padding: 0 15px;
 	color: $red;
 	transition: all .5s ease-in-out;
 	text-transform: uppercase;
+	text-decoration: none;
+}
+.objectSlider__item {
+	width: 100%;
+	padding-bottom: 56.25%;
+	height: 0;
+	background-color: $red;
+}
+.slide__img {
+	width: 100%;
+	height: auto;
 }
