@@ -22,6 +22,6 @@ function ImgCover(sSelector) {
 
   };
 
-	$(window).ready(i.cover);
+	//$(window).ready(i.cover);
 
 }
