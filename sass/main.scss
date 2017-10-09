@@ -10,7 +10,11 @@
 @mixin boxShadow() {
 	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
 }
+
 $red: #cc2a3a;
+
+$timing-one: cubic-bezier(0.86, 0, 0.07, 1);
+$timing-two: cubic-bezier(0.23, 1, 0.32, 1);
 
 body {
 	font-family: sans-serif;
@@ -49,6 +53,36 @@ body {
 	padding-bottom: 56.25%;
 	height: 0;
 	background-color: $red;
+	position: relative;
+}
+
+.slide__head {
+	position: absolute;
+	bottom: 10%;
+	left: -15%;
+	background-color: $red;
+	padding-left: 5%;
+	padding-right: 5%;
+	overflow: hidden;
+	clip: rect(100vh, 100vw, 100vh, 0);
+	transition: clip 0.75s $timing-one 0.75s;
+}
+.slideHead {
+	color : #fff;
+	text-transform: uppercase;
+	font-size: 32px;
+	transform: translateY(160%);
+	transition: transform 0.75s $timing-one 0.75s;
+}
+.owl-item.active .objectSlider__item{
+	.slide__head {
+		clip: rect(0, 100vw, 100vh, 0);
+		/*transition: clip 0.5s $timing-one 0.75s;*/
+	}
+	.slideHead {
+		transform: translateY(0);
+		/*transition: clip 0.5s $timing-one 0.75s;*/
+	}
 }
 .slide__img {
 	width: 100%;
