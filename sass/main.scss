@@ -21,6 +21,7 @@ body {
 }
 .objects {
 	padding-top: 5%;
+	position: relative;
 }
 .back__btn {
 	display: inline-block;
@@ -54,6 +55,8 @@ body {
 	height: 0;
 	background-color: $red;
 	position: relative;
+	margin-bottom: 20px;
+	@include boxShadow();
 }
 
 .slide__head {
@@ -88,4 +91,35 @@ body {
 .slide__img {
 	width: 100%;
 	height: auto;
+}
+.slider__nav {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 85%;
+}
+.slideNav__btn {
+	text-decoration: none;
+	color: #fff;
+	font-size: 150px;
+	z-index: 1000;
+	width: 7%;
+	height: 100%;
+	opacity: 0.6;
+	position: relative;
+	&:hover {
+		opacity: 1;
+	}
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+}
+.slideNav__btn_prev {
+	float: left;
+}
+.slideNav__btn_next {
+	float: right;
 }
