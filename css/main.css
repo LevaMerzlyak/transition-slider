@@ -47,10 +47,11 @@ body {
   padding-left: 5%;
   padding-right: 5%;
   overflow: hidden;
+  cursor: pointer;
   clip: rect(100vh, 100vw, 100vh, 0);
-  -webkit-transition: clip 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s;
-  -o-transition: clip 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s;
-  transition: clip 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s; }
+  -webkit-transition: clip 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+  -o-transition: clip 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+  transition: clip 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s; }
 
 .slideHead {
   color: #fff;
@@ -59,11 +60,11 @@ body {
   -webkit-transform: translateY(160%);
   -ms-transform: translateY(160%);
   transform: translateY(160%);
-  -webkit-transition: -webkit-transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s;
-  transition: -webkit-transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s;
-  -o-transition: transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s;
-  transition: transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s;
-  transition: transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s, -webkit-transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.75s; }
+  -webkit-transition: -webkit-transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+  transition: -webkit-transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+  -o-transition: transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+  transition: transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+  transition: transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s, -webkit-transform 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.5s; }
 
 .owl-item.active .objectSlider__item .slide__head {
   clip: rect(0, 100vw, 100vh, 0);
