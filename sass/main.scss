@@ -55,12 +55,15 @@ body {
 	text-decoration: none;
 }
 .objectSlider__item {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	@include boxShadow();
+}
+.slide__cover {
+	position: relative;
 	width: 100%;
 	padding-bottom: 56.25%;
 	height: 0;
-	position: relative;
-	margin-bottom: 20px;
-	@include boxShadow();
 }
 .slide__bg {
 	position: absolute;
@@ -102,9 +105,14 @@ body {
 }
 .slide__article {
 	position: absolute;
-	color: #5a5a5a;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	width: 100%;
 	height: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #5a5a5a;
 	opacity: 0;
 	@include boxShadow();
 }
@@ -132,6 +140,7 @@ body {
 	}
 }
 .objectSlider__item.opened {
+	
 	.slide__bg {
 		animation: rollUp 0.75s $timing-one 0s forwards;
 	}
@@ -139,7 +148,7 @@ body {
 		animation: colapse 0.75s $timing-one 0s forwards;
 	}
 	.slideHead {
-		color : #5a5a5a;
+		
 	}
 	.slide__article {
 		opacity: 1;
