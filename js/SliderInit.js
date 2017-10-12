@@ -16,12 +16,9 @@ function SliderInit(sSelector) {
     var img = $(this).find('.slide__img')
         ,src = img.attr('src')
         ,wrap = $(this).find('.slide__bg')
-        ,head = $(this).find('.slideArt__head').html()
-        ,coverHead = $(this).find('.slideHead')
         ;
 
     wrap.css({ 'background-image': 'url(' + src + ')' } );
-    coverHead.html(head);
 
    } );
 
