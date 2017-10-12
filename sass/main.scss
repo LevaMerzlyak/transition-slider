@@ -19,6 +19,10 @@ $timing-two: cubic-bezier(0.23, 1, 0.32, 1);
 body {
 	font-family: sans-serif;
 }
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
 .objects {
 	padding-top: 5%;
 	position: relative;
@@ -33,6 +37,7 @@ body {
 	background-size: 0% 100%;
 	transition: all 1s ease-in-out;
 	cursor: pointer;
+	visibility: hidden;
 	&:hover{
 		background-color: $red;
 		background-size: 100% 100%;
@@ -53,30 +58,37 @@ body {
 	width: 100%;
 	padding-bottom: 56.25%;
 	height: 0;
-	background-color: $red;
 	position: relative;
 	margin-bottom: 20px;
 	@include boxShadow();
 }
-
+.slide__bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index: 99;
+}
 .slide__head {
 	position: absolute;
-	bottom: 10%;
-	left: -15%;
+	top: 60%;
+	left: -10%;
 	background-color: $red;
 	padding-left: 5%;
 	padding-right: 5%;
 	overflow: hidden;
 	cursor: pointer;
 	clip: rect(100vh, 100vw, 100vh, 0);
-	transition: clip 0.75s $timing-one 0.5s;
+	transition: clip 0.75s $timing-one 0.3s;
+	z-index: 100;
 }
 .slideHead {
 	color : #fff;
 	text-transform: uppercase;
 	font-size: 32px;
 	transform: translateY(160%);
-	transition: transform 0.75s $timing-one 0.5s;
+	transition: transform 0.75s $timing-one 0.3s;
 }
 .owl-item.active .objectSlider__item{
 	.slide__head {
@@ -88,38 +100,81 @@ body {
 		/*transition: clip 0.5s $timing-one 0.75s;*/
 	}
 }
+.slide__article {
+	position: absolute;
+	color: #5a5a5a;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	@include boxShadow();
+}
+.slideArt__head {
+	padding-left: 5%;
+	padding-right: 5%;
+	text-transform: uppercase;
+	font-size: 32px;
+}
 .slide__img {
 	width: 100%;
 	height: auto;
 }
 .slider__nav {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 85%;
+	text-align: right;
+	padding-right: 3%;
 }
 .slideNav__btn {
+	line-height: 44px;
 	text-decoration: none;
-	color: #fff;
-	font-size: 150px;
-	z-index: 1000;
-	width: 7%;
-	height: 100%;
-	opacity: 0.6;
-	position: relative;
-	&:hover {
+	color: $red;
+	.fa {
+		width: 44px;
+		font-size: 40px;
+	}
+}
+.objectSlider__item.opened {
+	.slide__bg {
+		animation: rollUp 0.75s $timing-one 0s forwards;
+	}
+	.slide__head {		
+		animation: colapse 0.75s $timing-one 0s forwards;
+	}
+	.slideHead {
+		color : #5a5a5a;
+	}
+	.slide__article {
 		opacity: 1;
-	}
-	span {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
+		/*animation: expand 0.75s $timing-one 0.25s forwards;*/
 	}
 }
-.slideNav__btn_prev {
-	float: left;
+
+
+
+/*---------- Animations ----------*/
+@keyframes rollUp {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.5);
+	}
 }
-.slideNav__btn_next {
-	float: right;
+@keyframes colapse {
+	from {
+		clip: rect(0, 100vw, 100vh, 0);
+	}
+	to {
+		clip: rect(0, 0, 100vh, 0);
+	}
+}
+@keyframes expand {
+	from {		
+		width: 100%;
+		height: 100%;
+	}
+	to {		
+		width: 100vh;
+		height: auto;
+	}
 }
