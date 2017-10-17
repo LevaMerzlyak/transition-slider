@@ -113,7 +113,6 @@ body {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	color: #5a5a5a;
-	opacity: 0;
 	@include boxShadow();
 }
 .slideArt__head {
@@ -147,13 +146,7 @@ body {
 	.slide__head {		
 		animation: colapse 0.75s $timing-one 0s forwards;
 	}
-	.slideHead {
-		
-	}
-	.slide__article {
-		opacity: 1;
-		/*animation: expand 0.75s $timing-one 0.25s forwards;*/
-	}
+	
 }
 
 
