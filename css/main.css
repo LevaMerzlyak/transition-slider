@@ -63,6 +63,7 @@ body {
   top: 60%;
   left: -10%;
   background-color: #cc2a3a;
+  text-decoration: none;
   padding-left: 5%;
   padding-right: 5%;
   overflow: hidden;
@@ -97,20 +98,38 @@ body {
   /*transition: clip 0.5s $timing-one 0.75s;*/ }
 
 .slide__article {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   color: #5a5a5a;
-  opacity: 0;
+  background: #fff;
+  z-index: 99999;
+  -webkit-transition: opacity 400ms ease-in;
+  -o-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  display: none;
+  pointer-events: none;
   -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  /*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #5a5a5a;
+	@include boxShadow();*/ }
+
+.slide__article:target {
+  display: block;
+  pointer-events: auto;
+  -webkit-animation: rollIn 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.8s reverse;
+  animation: rollIn 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0.8s reverse;
+  overflow-y: auto; }
 
 .slideArt__head {
   padding-left: 5%;
@@ -118,9 +137,15 @@ body {
   text-transform: uppercase;
   font-size: 32px; }
 
+.slide__txt {
+  padding-left: 5%;
+  padding-right: 5%; }
+
 .slide__img {
-  width: 100%;
-  height: auto; }
+  width: 90%;
+  height: auto;
+  padding-left: 5%;
+  padding-right: 5%; }
 
 .slider__nav {
   text-align: right;
@@ -135,19 +160,15 @@ body {
     font-size: 40px; }
 
 .objectSlider__item.opened .slide__bg {
-  -webkit-animation: rollUp 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-  animation: rollUp 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards; }
+  -webkit-animation: rollIn 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
+  animation: rollIn 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards; }
 
 .objectSlider__item.opened .slide__head {
   -webkit-animation: colapse 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
   animation: colapse 0.75s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards; }
 
-.objectSlider__item.opened .slide__article {
-  opacity: 1;
-  /*animation: expand 0.75s $timing-one 0.25s forwards;*/ }
-
 /*---------- Animations ----------*/
-@-webkit-keyframes rollUp {
+@-webkit-keyframes rollIn {
   from {
     opacity: 1;
     -webkit-transform: scale(1);
@@ -156,7 +177,7 @@ body {
     opacity: 0;
     -webkit-transform: scale(0.5);
     transform: scale(0.5); } }
-@keyframes rollUp {
+@keyframes rollIn {
   from {
     opacity: 1;
     -webkit-transform: scale(1);

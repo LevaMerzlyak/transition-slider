@@ -78,6 +78,7 @@ body {
 	top: 60%;
 	left: -10%;
 	background-color: $red;
+	text-decoration: none;
 	padding-left: 5%;
 	padding-right: 5%;
 	overflow: hidden;
@@ -104,7 +105,20 @@ body {
 	}
 }
 .slide__article {
-	position: absolute;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	color: #5a5a5a;
+	background: #fff;
+	z-index: 99999;
+	transition: opacity 400ms ease-in;
+	display: none;
+	pointer-events: none;
+	@include boxShadow();
+
+	/*position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -113,17 +127,30 @@ body {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	color: #5a5a5a;
-	@include boxShadow();
+	@include boxShadow();*/
 }
+.slide__article:target {
+	display: block;
+	pointer-events: auto;
+	animation: rollIn 0.75s $timing-one 0.8s reverse;
+	overflow-y: auto;
+}
+
 .slideArt__head {
 	padding-left: 5%;
 	padding-right: 5%;
 	text-transform: uppercase;
 	font-size: 32px;
 }
+.slide__txt {
+	padding-left: 5%;
+	padding-right: 5%;
+}
 .slide__img {
-	width: 100%;
+	width: 90%;
 	height: auto;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 .slider__nav {
 	text-align: right;
@@ -141,7 +168,7 @@ body {
 .objectSlider__item.opened {
 	
 	.slide__bg {
-		animation: rollUp 0.75s $timing-one 0s forwards;
+		animation: rollIn 0.75s $timing-one 0s forwards;
 	}
 	.slide__head {		
 		animation: colapse 0.75s $timing-one 0s forwards;
@@ -152,7 +179,7 @@ body {
 
 
 /*---------- Animations ----------*/
-@keyframes rollUp {
+@keyframes rollIn {
 	from {
 		opacity: 1;
 		transform: scale(1);
