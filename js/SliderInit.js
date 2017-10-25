@@ -2,10 +2,13 @@ function SliderInit(sSelector) {
 
     var i = this;
 
-    i.objects = $(sSelector);
-    i.slide   = i.objects.find('.slide__article');
-    i.length  = i.slide.length;
-    i.item    = i.objects.find('.objectSlider__item');
+    i.objects   = $(sSelector);
+    i.slide     = i.objects.find('.slide__article');
+    i.length    = i.slide.length;
+    i.item      = i.objects.find('.objectSlider__item');
+    i.itemHead  = i.item.find('.slide__head');
+
+    i.backBtn = i.objects.find('.back__btn'); 
 
     //Controls
     i.prev = i.objects.find('.slideNav__btn_prev');
@@ -30,7 +33,26 @@ function SliderInit(sSelector) {
         }
 
     }
+
+    i.showSlide = function () {
+        
+        var slide = i.objects.find('.objectSlider__item');
+
+        slide.addClass('opened');
+        i.backBtn.addClass('opened');
+
+    }
+
+    i.hideSlide = function () {
+
+        var slide = i.objects.find('.objectSlider__item');
+        
+        slide.removeClass('opened');
+        i.backBtn.removeClass('opened');
+
+    }
     
-    //i.slide.click(i.showSlide);
+    i.itemHead.click(i.showSlide);
+    i.backBtn.click(i.hideSlide);
 
 };
