@@ -8,7 +8,10 @@ function SliderInit(sSelector) {
     i.item      = i.objects.find('.objectSlider__item');
     i.itemHead  = i.item.find('.slide__head');
 
-    i.backBtn = i.objects.find('.back__btn'); 
+    i.backBtn = i.objects.find('.back__btn');
+
+    i.opened    = {};
+    i.article   = {};
 
     //Controls
     i.prev = i.objects.find('.slideNav__btn_prev');
@@ -35,11 +38,20 @@ function SliderInit(sSelector) {
     }
 
     i.showSlide = function () {
+
+        i.opened = $(this).attr('href');
+        i.article = i.objects.find(i.opened);
         
         var slide = i.objects.find('.objectSlider__item');
 
         slide.addClass('opened');
         i.backBtn.addClass('opened');
+        setTimeout(function () {
+
+            $('body').css('overflow', 'hidden');
+
+        }, 800);
+        i.article.addClass('active');     
 
     }
 
@@ -48,7 +60,11 @@ function SliderInit(sSelector) {
         var slide = i.objects.find('.objectSlider__item');
         
         slide.removeClass('opened');
+        //i.opened.removeClass('opened');
+        //i.article.removeClass('active');
         i.backBtn.removeClass('opened');
+        $('body').css('overflow', '');
+        
 
     }
     
