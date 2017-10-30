@@ -84,7 +84,7 @@
 					<p class="slide__txt">Pellentesque leo odio, auctor rutrum rutrum eu, ultricies non neque. Sed ultrices, sapien sit amet pulvinar molestie, ligula ex consectetur enim, ac vehicula ipsum arcu sit amet nulla. Pellentesque hendrerit felis vel magna posuere accumsan. Donec rhoncus massa eget elit lobortis sollicitudin. Maecenas a urna vulputate, tincidunt orci id, venenatis urna. Etiam libero est, malesuada luctus arcu sed, facilisis vehicula mauris. Nulla a rutrum erat. Sed ut fermentum dui.</p>
 				</article>
 			</div>
-			<div class="owl-carousel">
+			<div class="objectSlider owl-carousel">
 				<div class="objectSlider__item">
 					<div class="slide__cover">
 						<div class="slide__bg"></div>
@@ -144,7 +144,7 @@
 	</script>
 	<script src="js/OwlCarousel2-2.2.1/dist/owl.carousel.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		var owl = $(".owl-carousel");
+		var owl = $(".objectSlider");
 		$(document).ready(function(){
 			owl.owlCarousel({
 				loop: true,
@@ -163,6 +163,12 @@
 		i.next.click(function(event) {
 			event.preventDefault();
 			owl.trigger('next.owl.carousel');
+		});
+		owl.on('click', '.slide__head', function () {
+
+			i.opened = $(this).attr('href');
+			i.showSlide();
+
 		});
 	</script>
 	
