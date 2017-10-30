@@ -39,7 +39,6 @@ function SliderInit(sSelector) {
 
     i.showSlide = function () {
 
-        i.opened = $(this).attr('href');
         i.article = i.objects.find(i.opened);
         
         var slide = i.objects.find('.objectSlider__item');
@@ -51,7 +50,8 @@ function SliderInit(sSelector) {
             $('body').css('overflow', 'hidden');
 
         }, 800);
-        i.article.addClass('active');     
+        i.article.addClass('active');
+        console.log(i.opened);
 
     }
 
@@ -61,14 +61,13 @@ function SliderInit(sSelector) {
         
         slide.removeClass('opened');
         //i.opened.removeClass('opened');
-        //i.article.removeClass('active');
+        i.article.removeClass('active');
         i.backBtn.removeClass('opened');
         $('body').css('overflow', '');
         
 
     }
     
-    i.itemHead.click(i.showSlide);
     i.backBtn.click(i.hideSlide);
 
 };
