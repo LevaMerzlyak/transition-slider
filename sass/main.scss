@@ -44,6 +44,7 @@ body {
 		color: $red;
 		text-transform: uppercase;
 		text-decoration: none;
+		transition: color 0.7s $timing-one 0s;
 		&::before {
 			content: "";
 			position: absolute;
@@ -53,7 +54,7 @@ body {
 			height: 100%;
 			background-color: $red;
 			transform: translateX(100%) translateZ(-1px);
-			transition: transform 0.1s $timing-one 0s;
+			transition: transform 0.5s $timing-one 0s;
 			z-index: -1;
 		}
 		&:hover {
