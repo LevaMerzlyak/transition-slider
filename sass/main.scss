@@ -171,7 +171,7 @@ body {
 .slide__txt,
 .slideImg__wrap {
 	transform: translateY(10vw);
-	transition: transform 0.5s $timing-one 0.85s;
+	opacity: 0;
 }
 .slider__nav {
 	text-align: right;
@@ -202,7 +202,7 @@ body {
 	.slideArt__head,
 	.slide__txt,
 	.slideImg__wrap {
-		transform: translateY(0);
+		animation: slideUp 1.5s $timing-one 1.6s forwards;
 	}
 }
 
@@ -234,5 +234,18 @@ body {
 	}
 	to {
 		clip: rect(0, 0, 100vh, 0);
+	}
+}
+@keyframes slideUp {
+	from {
+		transform: translateY(20vw);
+		opacity: 0;
+	}
+	70% {
+		opacity: 1;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
